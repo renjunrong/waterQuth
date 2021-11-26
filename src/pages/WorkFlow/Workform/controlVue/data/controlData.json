@@ -1,0 +1,174 @@
+{
+  "controlData": [
+    {
+      "fontIcon": "proposer",
+      "type": "proposer",
+      "name": "申请人",
+      "label": "申请人",
+      "options":{
+          "type": "text",
+          "width": 12,
+          "defaultValue": "",
+          "placeholder": "请输入",
+          "clearable": false,
+          "maxLength": 0,
+          "prepend": "",
+          "append": "",
+          "tooptip": "",
+          "hidden": false,
+          "disabled": false,
+          "dynamicHide": false,
+          "dynamicHideValue": "",
+          "repetition": false,
+          "voluntarily": false
+      },
+      "model": "",
+      "key": "",
+      "rules": [
+        {
+          "required": false,
+          "message": "必填项",
+          "trigger": [
+            "blur"
+          ]
+        }
+      ]
+    },
+    {
+      "fontIcon": "input",
+      "type": "input",
+      "name": "单行输入框",
+      "label": "输入框",
+      "options": {
+        "type": "text",
+        "width": 12,
+        "defaultValue": "",
+        "placeholder": "请输入",
+        "clearable": false,
+        "maxLength": 0,
+        "prepend": "",
+        "append": "",
+        "tooptip": "",
+        "hidden": false,
+        "disabled": false,
+        "dynamicHide": false,
+        "dynamicHideValue": "",
+        "repetition":false,
+        "voluntarily":false
+      },
+      "model": "",
+      "key": "",
+      "rules": [
+        {
+          "required": false,
+          "message": "必填项",
+          "trigger": [
+            "blur"
+          ]
+        }
+      ]
+    },
+    {
+      "fontIcon": "textarea",
+      "type": "textarea",
+      "name": "多文本输入框",
+      "label": "文本框",
+      "options": {
+        "width": 12,
+        "maxLength": 0,
+        "defaultValue": "",
+        "rows": 4,
+        "clearable": false,
+        "tooptip": "",
+        "hidden": false,
+        "disabled": false,
+        "placeholder": "请输入",
+        "dynamicHide": false,
+        "dynamicHideValue": "",
+        "repetition": false,
+        "voluntarily": false
+      },
+      "model": "textarea_1636942844841",
+      "key": "textarea_1636942844841",
+      "rules": [
+        {
+          "required": false,
+          "message": "必填项",
+          "trigger": [
+            "blur"
+          ]
+        }
+      ]
+    },
+    {
+      "fontIcon": "numInput",
+      "type": "numInput",
+      "name": "数字输入框"
+    },
+    {
+      "fontIcon": "uploadImg",
+      "type": "uploadImg",
+      "name": "上传图片"
+    },
+    {
+      "fontIcon": "Navigator",
+      "type": "Navigator",
+      "name": "定位"
+    },
+    {
+      "fontIcon": "radio",
+      "type": "radio",
+      "name": "单选按钮"
+    },
+    {
+      "fontIcon": "uploadFile",
+      "type": "uploadFile",
+      "name": "上传文件"
+    },
+    {
+      "fontIcon": "table",
+      "type": "table",
+      "name": "表格"
+    },
+    {
+      "fontIcon": "checkbox",
+      "type": "checkbox",
+      "name": "多选按钮"
+    },
+    {
+      "fontIcon": "serialNum",
+      "type": "serialNum",
+      "name": "流水号"
+    },
+    {
+      "fontIcon": "phone",
+      "type": "phone",
+      "name": "手机号"
+    },
+    {
+      "fontIcon": "date",
+      "type": "date",
+      "name": "日期"
+    },
+    {
+      "fontIcon": "time",
+      "type": "time",
+      "name": "日期+时间"
+    },
+    {
+      "fontIcon": "select",
+      "type": "select",
+      "name": "下拉单选"
+    },
+    {
+      "fontIcon": "multSelect",
+      "type": "multSelect",
+      "name": "下拉多选"
+    },
+    {
+      "fontIcon": "steps",
+      "type": "steps",
+      "name": "流程"
+    }
+  ]
+}
