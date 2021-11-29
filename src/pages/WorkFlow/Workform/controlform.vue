@@ -43,13 +43,21 @@
                   @click.stop="removeCom(element, index)"
                 />
                 <el-form-item :label="element.label">
-                  <el-input v-if="element.type === 'input' || element.type === 'proposer'" :readonly="true" />
+                  <el-input v-if="element.type === 'input' || element.type === 'proposer' ||element.type === 'numInput'" :readonly="true" />
                   <el-input
-                    v-if="element.type === 'textarea'"
+                    v-else-if="element.type === 'textarea'"
                     type="textarea"
                     maxlength="30"
                     :readonly="true"
                   />
+                  <el-upload
+                    v-else-if="element.type === 'uploadImg'"
+                    action=""
+                    list-type="picture-card"
+                    :disabled="true"
+                  >
+                    <i class="el-icon-plus" />
+                  </el-upload>
                 </el-form-item>
               </el-col>
             </transition-group>
@@ -123,8 +131,9 @@ export default {
     },
     // 添加组件
     controlAdd(obj, index) {
-      console.log(obj)
       this.attrForm = this.controlData[index]
+      this.attrForm = Object.assign({}, this.controlData[index])
+      console.log(this.attrForm)
       this.myArray.push(obj)
     },
     // preview预览效果

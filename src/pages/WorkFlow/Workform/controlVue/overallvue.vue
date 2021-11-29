@@ -7,7 +7,11 @@
       <el-form-item label="控件名称：">
         <el-input v-model="componentFrom.label" placeholder="最多不超过10个字" />
       </el-form-item>
-      <input-vue :input-form="componentFrom" />
+      <!-- 变动表单 -->
+      <input-vue v-if="fromType === 'input'" :input-form="componentFrom" />
+      <proposerVue v-if="fromType === 'proposer'" :input-form="componentFrom" />
+      <textareaVue v-if="fromType === 'textarea'" :input-form="componentFrom" />
+      <numInputVue v-if="fromType === 'numInput'" :input-form="componentFrom" />
       <el-form-item label="是否必填：">
         <el-radio-group v-if="componentFrom.rules" v-model="componentFrom.rules[0].required">
           <el-radio :label="true">是</el-radio>
@@ -25,9 +29,12 @@
 
 <script>
 import inputVue from './input.vue'
+import proposerVue from './proposer.vue'
+import textareaVue from './textarea.vue'
+import numInputVue from './numInput.vue'
 export default {
   components: {
-    inputVue
+    inputVue, proposerVue, textareaVue, numInputVue
   },
   props: {
     componentFrom: {
@@ -49,7 +56,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.componentFrom, 3333)
+    console.log(this.componentFrom, this.fromType)
   },
   methods: {
     widthChange(val) {

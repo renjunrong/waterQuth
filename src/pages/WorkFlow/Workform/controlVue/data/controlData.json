@@ -5,22 +5,22 @@
       "type": "proposer",
       "name": "申请人",
       "label": "申请人",
-      "options":{
-          "type": "text",
-          "width": 12,
-          "defaultValue": "",
-          "placeholder": "请输入",
-          "clearable": false,
-          "maxLength": 0,
-          "prepend": "",
-          "append": "",
-          "tooptip": "",
-          "hidden": false,
-          "disabled": false,
-          "dynamicHide": false,
-          "dynamicHideValue": "",
-          "repetition": false,
-          "voluntarily": false
+      "options": {
+        "type": "text",
+        "width": 12,
+        "defaultValue": "",
+        "placeholder": "请输入",
+        "clearable": false,
+        "maxLength": 0,
+        "prepend": "",
+        "append": "",
+        "tooptip": "",
+        "hidden": false,
+        "disabled": false,
+        "dynamicHide": false,
+        "dynamicHideValue": "",
+        "repetition": false,
+        "voluntarily": false
       },
       "model": "",
       "key": "",
@@ -53,8 +53,8 @@
         "disabled": false,
         "dynamicHide": false,
         "dynamicHideValue": "",
-        "repetition":false,
-        "voluntarily":false
+        "repetition": false,
+        "voluntarily": false
       },
       "model": "",
       "key": "",
@@ -103,7 +103,57 @@
     {
       "fontIcon": "numInput",
       "type": "numInput",
-      "name": "数字输入框"
+      "name": "数字输入框",
+      "label": "数字输入框",
+      "options": {
+        "type": "text",
+        "width": 12,
+        "defaultValue": "",
+        "placeholder": "请输入",
+        "clearable": false,
+        "maxLength": 0,
+        "prepend": "",
+        "append": "",
+        "tooptip": "",
+        "hidden": false,
+        "disabled": false,
+        "dynamicHide": false,
+        "dynamicHideValue": "",
+        "repetition": false,
+        "voluntarily": false
+      },
+      "model": "",
+      "key": "",
+      "rules": [
+        {
+          "required": false,
+          "message": "必填项",
+          "trigger": [
+            "blur"
+          ]
+        },
+        {
+          "required": false,
+          "message": "支持两位小数",
+          "trigger": [
+            "blur"
+          ]
+        },
+        {
+          "required": false,
+          "message": "必须是整数",
+          "trigger": [
+            "blur"
+          ]
+        },
+        {
+          "required": false,
+          "message": "必须大于0",
+          "trigger": [
+            "blur"
+          ]
+        }
+      ]
     },
     {
       "fontIcon": "uploadImg",
