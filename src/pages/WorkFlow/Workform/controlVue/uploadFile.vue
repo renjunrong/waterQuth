@@ -8,11 +8,12 @@
         <el-radio label="1">单个</el-radio>
         <el-radio label="10">多个(小于等于10)</el-radio>
       </el-radio-group>
+
     </el-form-item>
-    <el-form-item label="图片格式：">
+    <el-form-item label="文件格式：">
       {{ inputForm.options.format }}
     </el-form-item>
-    <el-form-item label="单个图片大小：">
+    <el-form-item label="单个文件大小：">
       <el-input v-model="inputForm.options.fileSzie">
         <template slot="append">mb</template>
       </el-input>

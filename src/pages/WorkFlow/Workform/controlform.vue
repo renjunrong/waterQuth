@@ -43,12 +43,23 @@
                   @click.stop="removeCom(element, index)"
                 />
                 <el-form-item :label="element.label">
-                  <el-input v-if="element.type === 'input' || element.type === 'proposer' ||element.type === 'numInput'" :readonly="true" />
+                  <el-input
+                    v-if="
+                      element.type === 'input' ||
+                        element.type === 'proposer' ||
+                        element.type === 'numInput' ||
+                        element.type === 'serialNum' ||
+                        element.type === 'phone'
+                    "
+                    :readonly="true"
+                    :placeholder="element.options.placeholder"
+                  />
                   <el-input
                     v-else-if="element.type === 'textarea'"
                     type="textarea"
                     maxlength="30"
                     :readonly="true"
+                    :placeholder="element.options.placeholder"
                   />
                   <el-upload
                     v-else-if="element.type === 'uploadImg'"
@@ -58,6 +69,48 @@
                   >
                     <i class="el-icon-plus" />
                   </el-upload>
+                  <el-button
+                    v-else-if="element.type === 'Navigator'"
+                    style="width: 100%;"
+                    plain
+                    icon="el-icon-map-location"
+                  >获取定位</el-button>
+                  <el-radio-group v-else-if="element.type === 'radio'">
+                    <el-radio
+                      v-for="(item, key) in element.options.options"
+                      :key="key"
+                      :class="
+                        element.options.arrange == '2' ? 'radio_list' : ''
+                      "
+                    >{{ item.label }}</el-radio>
+                  </el-radio-group>
+                  <el-button
+                    v-else-if="element.type === 'uploadFile'"
+                    style="width: 100%;"
+                    size="small"
+                    type="primary"
+                  >点击上传</el-button>
+                  <el-checkbox-group v-else-if="element.type === 'checkbox'">
+                    <el-checkbox
+                      v-for="(item, key) in element.options.options"
+                      :key="key"
+                      :class="
+                        element.options.arrange == '2' ? 'radio_list' : ''
+                      "
+                    >{{ item.label }}</el-checkbox>
+                  </el-checkbox-group>
+                  <el-date-picker
+                    v-else-if="element.type === 'date'"
+                    type="date"
+                    :placeholder="element.options.placeholder"
+                    :readonly="true"
+                  />
+                  <el-date-picker
+                    v-else-if="element.type === 'time'"
+                    type="datetime"
+                    :placeholder="element.options.placeholder"
+                    :readonly="true"
+                  />
                 </el-form-item>
               </el-col>
             </transition-group>
@@ -79,7 +132,7 @@
           </div>
           <span
             class="iconfont icon-a-tianjia font-add"
-            @click="controlAdd(item,index)"
+            @click="controlAdd(item, index)"
           />
         </el-col>
       </el-row>
@@ -101,7 +154,7 @@ export default {
     return {
       drag: false,
       myArray: [], // 主题表单数组
-      controlData,
+      controlData: Object.assign({}, controlData),
       formLabelAlign: {},
       attrForm: {}, // 控件属性
       formName: '',
@@ -112,7 +165,6 @@ export default {
         { val: 4, label: '在建项目管理' },
         { val: 5, label: '采购管理' },
         { val: 6, label: '资产管理' }
-
       ],
       formType: 1,
       id: ''
@@ -131,7 +183,7 @@ export default {
     },
     // 添加组件
     controlAdd(obj, index) {
-      this.attrForm = this.controlData[index]
+      // this.attrForm = this.controlData[index]
       this.attrForm = Object.assign({}, this.controlData[index])
       console.log(this.attrForm)
       this.myArray.push(obj)
@@ -187,6 +239,10 @@ export default {
       top: -14px;
       right: 0px;
     }
+  }
+  .radio_list {
+    display: block;
+    margin-bottom: 20px;
   }
   .control_title {
     margin-bottom: 30px;
