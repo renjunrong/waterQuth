@@ -8,6 +8,7 @@ import Home from '@/pages/Home.vue'
 const Work = () => import('@/pages/MyWork/myWork.vue')
 // 流程中心
 const ProcessCenter = () => import('@/pages/ProcessCenter/processCenter.vue')
+const applyForm = () => import('@/pages/ProcessCenter/applyForm/index.vue')
 // 工作流管理
 const Template = () => import('@/pages/WorkFlow/Template/template.vue')
 const PlateForm = () => import('@/pages/WorkFlow/Template/plateform.vue')
@@ -45,6 +46,10 @@ const routes = [
         path: '/processcenter',
         name: 'ProcessCenter',
         component: ProcessCenter
+      },{
+        path: '/applyForm',
+        name: 'applyForm',
+        component: applyForm
       },
       {
         path: '/template',
