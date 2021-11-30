@@ -6,9 +6,9 @@
       <el-select v-model="formType" placeholder="请选择">
         <el-option
           v-for="item in formTypes"
-          :key="item.val"
-          :label="item.label"
-          :value="item.val"
+          :key="item.value"
+          :label="item.name"
+          :value="item.value"
         />
       </el-select>
       <div class="handle_but">
@@ -49,7 +49,8 @@
                         element.type === 'proposer' ||
                         element.type === 'numInput' ||
                         element.type === 'serialNum' ||
-                        element.type === 'phone'
+                        element.type === 'phone' ||
+                        element.type === 'steps'
                     "
                     :readonly="true"
                     :placeholder="element.options.placeholder"
@@ -111,6 +112,12 @@
                     :placeholder="element.options.placeholder"
                     :readonly="true"
                   />
+                  <el-select
+                    v-else-if="element.type === 'select' || element.type === 'multSelect'"
+                    v-model="value"
+                    :placeholder="element.options.placeholder"
+                    :readonly="true"
+                  />
                 </el-form-item>
               </el-col>
             </transition-group>
@@ -158,21 +165,15 @@ export default {
       formLabelAlign: {},
       attrForm: {}, // 控件属性
       formName: '',
-      formTypes: [
-        { val: 1, label: '预算管理' },
-        { val: 2, label: '收支管理' },
-        { val: 3, label: '合同管理' },
-        { val: 4, label: '在建项目管理' },
-        { val: 5, label: '采购管理' },
-        { val: 6, label: '资产管理' }
-      ],
+      formTypes: [],
       formType: 1,
-      id: ''
+      id: '',
+      value: ''
     }
   },
   mounted() {
-    this.id = this.$route.params.id
-    console.log(this.id)
+    this.templateType()
+    this.$route.params.id ? this.id = this.$route.params.id : ''
   },
   methods: {
     onStart() {
@@ -202,18 +203,26 @@ export default {
       this.attrForm = this.myArray[index]
     },
     // 表单保存
-    async formSubmit() {
-      const { data } = await api.AddForm({
+    formSubmit() {
+      console.log(JSON.stringify(this.myArray), this.formName, this.formType)
+      api.AddForm({
         controlJson: JSON.stringify(this.myArray),
         formName: this.formName,
         formType: this.formType
+      }).then(res => {
+        if (res.code === 20000) {
+          this.$message.success(res.message)
+          this.$router.push('/workform')
+        } else {
+          this.$message.error(res.message)
+        }
       })
-      if (data) {
-        this.$message.success(data.message)
-      } else {
-        this.$message.error('操作失败')
-      }
+    },
+    // 获取类型
+    async templateType() {
+      const { data } = await api.templateType()
       console.log(data)
+      this.formTypes = data
     }
   }
 }
@@ -336,5 +345,8 @@ export default {
 }
 .control_left .el-form-item__content {
   width: calc(100% - 100px);
+}
+.algin_item .el-upload--picture-card {
+  width: 100%;
 }
 </style>

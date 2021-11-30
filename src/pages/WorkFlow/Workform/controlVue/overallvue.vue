@@ -45,6 +45,15 @@
       <phoneVue v-else-if="fromType === 'phone'" :input-form="componentFrom" />
       <dateVue v-else-if="fromType === 'date'" :input-form="componentFrom" />
       <timeVue v-else-if="fromType === 'time'" :input-form="componentFrom" />
+      <stepsVue v-else-if="fromType === 'steps'" :input-form="componentFrom" />
+      <selectVue
+        v-else-if="fromType === 'select' ||fromType === 'multSelect'"
+        :input-form="componentFrom"
+      />
+      <tableVue
+        v-else-if="fromType === 'table'"
+        :input-form="componentFrom"
+      />
       <!-- end -->
       <el-form-item label="是否必填：">
         <el-radio-group
@@ -57,6 +66,7 @@
       </el-form-item>
       <el-form-item label="字段宽度：">
         <el-radio-group
+          v-if="componentFrom.options"
           v-model="componentFrom.options.width"
           size="small"
           @change="widthChange"
@@ -85,6 +95,9 @@ import serialNumVue from './serialNum.vue'
 import phoneVue from './phone.vue'
 import dateVue from './date.vue'
 import timeVue from './time.vue'
+import stepsVue from './steps.vue'
+import selectVue from './select.vue'
+import tableVue from './table.vue'
 export default {
   components: {
     inputVue,
@@ -98,7 +111,10 @@ export default {
     serialNumVue,
     phoneVue,
     dateVue,
-    timeVue
+    timeVue,
+    stepsVue,
+    selectVue,
+    tableVue
   },
   props: {
     componentFrom: {
@@ -110,12 +126,12 @@ export default {
   data() {
     return {
       widthArr: [
-        { breadth: 6, label: '1/4' },
-        { breadth: 8, label: '1/3' },
-        { breadth: 12, label: '1/2' },
-        { breadth: 16, label: '2/3' },
-        { breadth: 18, label: '3/4' },
-        { breadth: 24, label: '整行' }
+        { breadth: '6', label: '1/4' },
+        { breadth: '8', label: '1/3' },
+        { breadth: '12', label: '1/2' },
+        { breadth: '16', label: '2/3' },
+        { breadth: '18', label: '3/4' },
+        { breadth: '24', label: '整行' }
       ]
     }
   },

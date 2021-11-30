@@ -4,11 +4,10 @@
       <el-input v-if="inputForm.rules" v-model="inputForm.options.placeholder" />
     </el-form-item>
     <el-form-item label="数据校验：">
-      <el-checkbox v-model="inputForm.options.voluntarily">必须从组织结构人员里选择</el-checkbox>
+      <el-checkbox v-model="inputForm.options.voluntarily">必须从个人相关流程选</el-checkbox>
     </el-form-item>
   </div>
 </template>
-
 <script>
 
 export default {

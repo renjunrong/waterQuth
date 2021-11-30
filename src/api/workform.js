@@ -36,7 +36,7 @@ export default {
   },
   templateType() {
     return request({
-      url: ' processForm/templateType',
+      url: 'processForm/templateType',
       method: 'get'
     })
   }

@@ -42,8 +42,9 @@ export default {
       ],
       formName: '', // 模板类型
       page: {
-        total: 10,
-        size: 1
+        total: 0,
+        size: 10,
+        current: 1
       }
     }
   },
@@ -66,7 +67,7 @@ export default {
     },
     async searchList() {
       const { data } = await api.FormList({
-        current: 10,
+        current: this.page.current,
         size: this.page.size,
         formName: this.formName
       })

@@ -509,17 +509,124 @@
     {
       "fontIcon": "select",
       "type": "select",
-      "name": "下拉单选"
+      "name": "下拉单选",
+      "label": "下拉单选",
+      "options": {
+        "type": "select",
+        "width": 12,
+        "placeholder": "请选择",
+        "clearable": false,
+        "disabled": false,
+        "hidden": false,
+        "defaultValue": "1",
+        "dynamic": 0,
+        "tooptip": "",
+        "remoteFunc": "",
+        "dataPath": "",
+        "remoteValue": "",
+        "remoteLabel": "",
+        "linkage": true,
+        "options": [
+          {
+            "value": "1",
+            "label": "选项1"
+          }
+        ],
+        "dynamicHide": false,
+        "dynamicHideValue": "",
+        "linkData": [],
+        "dynamicVisible": true,
+        "dynamicVisibleValue": ""
+      },
+      "model": "",
+      "key": "",
+      "rules": [
+        {
+          "required": false,
+          "message": "必填项",
+          "trigger": [
+            "blur"
+          ]
+        }
+      ]
     },
     {
       "fontIcon": "multSelect",
       "type": "multSelect",
-      "name": "下拉多选"
+      "name": "下拉多选",
+      "label": "下拉多选",
+      "options": {
+        "type": "multSelect",
+        "width": 12,
+        "placeholder": "请选择",
+        "clearable": false,
+        "disabled": false,
+        "hidden": false,
+        "defaultValue": "1",
+        "dynamic": 0,
+        "tooptip": "",
+        "remoteFunc": "",
+        "dataPath": "",
+        "remoteValue": "",
+        "remoteLabel": "",
+        "linkage": true,
+        "options": [
+          {
+            "value": "1",
+            "label": "选项1"
+          }
+        ],
+        "dynamicHide": false,
+        "dynamicHideValue": "",
+        "linkData": [],
+        "dynamicVisible": true,
+        "dynamicVisibleValue": ""
+      },
+      "model": "",
+      "key": "",
+      "rules": [
+        {
+          "required": false,
+          "message": "必填项",
+          "trigger": [
+            "blur"
+          ]
+        }
+      ]
     },
     {
       "fontIcon": "steps",
       "type": "steps",
-      "name": "流程"
+      "name": "流程",
+      "label": "流程",
+      "options": {
+        "type": "text",
+        "width": 12,
+        "defaultValue": "",
+        "placeholder": "请输入",
+        "clearable": false,
+        "maxLength": 0,
+        "prepend": "",
+        "append": "",
+        "tooptip": "",
+        "hidden": false,
+        "disabled": false,
+        "dynamicHide": false,
+        "dynamicHideValue": "",
+        "repetition": false,
+        "voluntarily": false
+      },
+      "model": "",
+      "key": "",
+      "rules": [
+        {
+          "required": false,
+          "message": "必填项",
+          "trigger": [
+            "blur"
+          ]
+        }
+      ]
     }
   ]
 }
